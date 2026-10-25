@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.9
+
+- **Fix: "This release has no .apk package for aarch64" on OpenWrt snapshot** (BPI-R4). The updater asked
+  `apk --print-arch`, which on snapshot answers only the CPU family (`aarch64`). It now reads the package
+  architecture from `/etc/apk/arch` (then `DISTRIB_ARCH`), e.g. `aarch64_cortex-a53`.
+- The public folder also has a copy of the aarch64 `.apk` under the short name 1.4.7 and 1.4.8 look for,
+  so those routers can update from the GG Network tab. A GitHub release of the same version gets the
+  files only listed in `latest.json` added.
+
 ## 1.4.8
 
 - A version to test updating from the GG Network tab (About → Check for updates, or the banner) on

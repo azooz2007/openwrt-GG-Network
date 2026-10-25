@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.4.8-19E3C0?style=for-the-badge" alt="version">
+  <img src="https://img.shields.io/badge/version-1.4.9-19E3C0?style=for-the-badge" alt="version">
   &nbsp;
   <img src="https://img.shields.io/badge/OpenWrt-24.10%20%7C%2025.12%20%7C%20snapshot-00B5E2?style=for-the-badge" alt="OpenWrt">
 </p>
@@ -68,8 +68,8 @@ Pick the file for your router's CPU and OpenWrt version (also on the
 
 | CPU (package architecture) | Routers | OpenWrt 24.10 | OpenWrt 25.12 / snapshot | Any version (installer) |
 |---|---|---|---|---|
-| `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.4.8-r1_aarch64_cortex-a53.ipk`](ggnet_1.4.8-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.4.8-r1-aarch64_cortex-a53.apk`](ggnet-1.4.8-r1-aarch64_cortex-a53.apk) | [`ggnet-1.4.8-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.4.8-r1-aarch64_cortex-a53-installer.tar.gz) |
-| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.4.8-r1_x86_64.ipk`](ggnet_1.4.8-r1_x86_64.ipk) | [`ggnet-1.4.8-r1-x86_64.apk`](ggnet-1.4.8-r1-x86_64.apk) | [`ggnet-1.4.8-r1-x86_64-installer.tar.gz`](ggnet-1.4.8-r1-x86_64-installer.tar.gz) |
+| `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.4.9-r1_aarch64_cortex-a53.ipk`](ggnet_1.4.9-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.4.9-r1-aarch64_cortex-a53.apk`](ggnet-1.4.9-r1-aarch64_cortex-a53.apk) | [`ggnet-1.4.9-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.4.9-r1-aarch64_cortex-a53-installer.tar.gz) |
+| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.4.9-r1_x86_64.ipk`](ggnet_1.4.9-r1_x86_64.ipk) | [`ggnet-1.4.9-r1-x86_64.apk`](ggnet-1.4.9-r1-x86_64.apk) | [`ggnet-1.4.9-r1-x86_64-installer.tar.gz`](ggnet-1.4.9-r1-x86_64-installer.tar.gz) |
 
 Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snapshot) or
 `opkg print-architecture` (24.10).
@@ -83,7 +83,7 @@ Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snaps
 
 ```sh
 opkg update
-opkg install /tmp/ggnet_1.4.8-r1_aarch64_cortex-a53.ipk
+opkg install /tmp/ggnet_1.4.9-r1_aarch64_cortex-a53.ipk
 ```
 
 **OpenWrt 25.12 / snapshot / ImmortalWrt** (`.apk`) — trust the GG Network key once, then install:
@@ -91,7 +91,7 @@ opkg install /tmp/ggnet_1.4.8-r1_aarch64_cortex-a53.ipk
 ```sh
 wget -O /etc/apk/keys/ggnet.pem https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-apk-key.pem
 apk update
-apk add /tmp/ggnet-1.4.8-r1-aarch64_cortex-a53.apk
+apk add /tmp/ggnet-1.4.9-r1-aarch64_cortex-a53.apk
 ```
 
 (The file names above are for the BPI-R4; use the one for your CPU from the table.)
@@ -104,23 +104,23 @@ GG Network packages are signed. apk only installs them once your router trusts t
 
    ```sh
    wget -O /etc/apk/keys/ggnet.pem https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-apk-key.pem
-   apk verify /tmp/ggnet-1.4.8-r1-aarch64_cortex-a53.apk
+   apk verify /tmp/ggnet-1.4.9-r1-aarch64_cortex-a53.apk
    ```
 
-   `OK` means the key and the file are fine: run `apk add /tmp/ggnet-1.4.8-r1-aarch64_cortex-a53.apk`.
+   `OK` means the key and the file are fine: run `apk add /tmp/ggnet-1.4.9-r1-aarch64_cortex-a53.apk`.
 
 2. **Still `UNTRUSTED`? Check that you have the real file.** It's about 4 MB. Saving the GitHub page from
    the browser saves a web page, not the package. Download it straight to the router instead:
 
    ```sh
-   wget -O /tmp/ggnet-1.4.8-r1-aarch64_cortex-a53.apk https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-1.4.8-r1-aarch64_cortex-a53.apk
+   wget -O /tmp/ggnet-1.4.9-r1-aarch64_cortex-a53.apk https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-1.4.9-r1-aarch64_cortex-a53.apk
    ```
 
 3. **The message names another feed?** If `apk update` prints `UNTRUSTED signature` for a feed
    that isn't GG Network (a third-party feed you added), that feed is the problem, not GG Network. The
    `apk add /tmp/...` above still installs GG Network.
 
-4. **Last resort:** `apk add --allow-untrusted /tmp/ggnet-1.4.8-r1-aarch64_cortex-a53.apk`. This installs the GG Network key
+4. **Last resort:** `apk add --allow-untrusted /tmp/ggnet-1.4.9-r1-aarch64_cortex-a53.apk`. This installs the GG Network key
    too, so later updates from the GG Network tab are checked again.
 
 The LuCI **Upload Package…** button gives the same message when the key is missing. Do step 1, then
@@ -164,13 +164,14 @@ Everything GG Network set up on the router is removed with it.
 
 ## What's new
 
-### 1.4.8
+### 1.4.9
 
-- A version to test updating from the GG Network tab (About → Check for updates, or the banner) on
-  routers that run 1.4.7. No changes to how GG Network works.
-- README: what to do when the `.apk` install says `UNTRUSTED signature` (add the key once and check
-  with `apk verify`, download the real file, a different feed's warning, `--allow-untrusted` as a last
-  resort).
+- **Fix: "This release has no .apk package for aarch64" on OpenWrt snapshot** (BPI-R4). The updater asked
+  `apk --print-arch`, which on snapshot answers only the CPU family (`aarch64`). It now reads the package
+  architecture from `/etc/apk/arch` (then `DISTRIB_ARCH`), e.g. `aarch64_cortex-a53`.
+- The public folder also has a copy of the aarch64 `.apk` under the short name 1.4.7 and 1.4.8 look for,
+  so those routers can update from the GG Network tab. A GitHub release of the same version gets the
+  files only listed in `latest.json` added.
 
 Older versions: [CHANGELOG.md](CHANGELOG.md).
 

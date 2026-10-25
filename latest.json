@@ -1,38 +1,43 @@
 {
-  "version": "1.4.8",
-  "published": "2026-10-25T04:34:49Z",
-  "notes": "- A version to test updating from the GG Network tab (About → Check for updates, or the banner) on\n  routers that run 1.4.7. No changes to how GG Network works.\n- README: what to do when the `.apk` install says `UNTRUSTED signature` (add the key once and check\n  with `apk verify`, download the real file, a different feed's warning, `--allow-untrusted` as a last\n  resort).",
+  "version": "1.4.9",
+  "published": "2026-10-25T04:40:21Z",
+  "notes": "- **Fix: \"This release has no .apk package for aarch64\" on OpenWrt snapshot** (BPI-R4). The updater asked\n  `apk --print-arch`, which on snapshot answers only the CPU family (`aarch64`). It now reads the package\n  architecture from `/etc/apk/arch` (then `DISTRIB_ARCH`), e.g. `aarch64_cortex-a53`.\n- The public folder also has a copy of the aarch64 `.apk` under the short name 1.4.7 and 1.4.8 look for,\n  so those routers can update from the GG Network tab. A GitHub release of the same version gets the\n  files only listed in `latest.json` added.",
   "prerelease": false,
   "files": [
     {
-      "name": "ggnet-1.4.8-r1-aarch64_cortex-a53-installer.tar.gz",
-      "size": 4419933,
-      "sha256": "98b0e20a1683709d25876445d6d952c4846ae302f91c859d41c5d5d184ec1d8c"
+      "name": "ggnet-1.4.9-r1-aarch64_cortex-a53-installer.tar.gz",
+      "size": 4420487,
+      "sha256": "08d34fbca70d236a16fef2ba52e88b47b791bd2e6cd4c937f821bad154479f84"
     },
     {
-      "name": "ggnet-1.4.8-r1-aarch64_cortex-a53.apk",
-      "size": 4368016,
-      "sha256": "c5a6ff8ac6bb79c85917c9602d742ede93b0de54ff92a4e0acd530941a88752a"
+      "name": "ggnet-1.4.9-r1-aarch64_cortex-a53.apk",
+      "size": 4368876,
+      "sha256": "1967fad83ae476fc08eeb875c339e8f6490d335d1acd16e5bf1dbc895f70e4a1"
     },
     {
-      "name": "ggnet-1.4.8-r1-x86_64-installer.tar.gz",
-      "size": 4790941,
-      "sha256": "fdd4c16f291f5868dc1a7f46ab0dc860baf2642d459c761d1f901f9816e05bd8"
+      "name": "ggnet-1.4.9-r1-x86_64-installer.tar.gz",
+      "size": 4791839,
+      "sha256": "6b45f41b00afb21be20768672a300e1d9dbdd638d97aecfc723ab6e021ecc87b"
     },
     {
-      "name": "ggnet-1.4.8-r1-x86_64.apk",
-      "size": 4747969,
-      "sha256": "3f2b5c1745efa6d21578e69888bc3ec7449bb3f5dfbec2ea7c8de002a62a2223"
+      "name": "ggnet-1.4.9-r1-x86_64.apk",
+      "size": 4748575,
+      "sha256": "45423ec4014ba0a485ffeac7afeaf75104e092550b2bbc6682236093e67f9fcb"
     },
     {
-      "name": "ggnet_1.4.8-r1_aarch64_cortex-a53.ipk",
-      "size": 4417246,
-      "sha256": "94735abdc659ae7d4ca3893255a42b450ca1362ec2f6284acfea05b63dcdca3a"
+      "name": "ggnet_1.4.9-r1_aarch64_cortex-a53.ipk",
+      "size": 4417768,
+      "sha256": "78dca00578095fb6111b6226962789d5f9c1085f1b8f0b002cad13b6579f41f4"
     },
     {
-      "name": "ggnet_1.4.8-r1_x86_64.ipk",
-      "size": 4786347,
-      "sha256": "f16e6ff9de913f2c6aa25a2dd66f932532211cbd74c5f4cb0306fdce9b633a41"
+      "name": "ggnet_1.4.9-r1_x86_64.ipk",
+      "size": 4786637,
+      "sha256": "bfc41377b6e013452f377c1abe0668b89c2fd687fbfeac18c060e9ad53450218"
+    },
+    {
+      "name": "ggnet-1.4.9-r1-aarch64.apk",
+      "size": 4368876,
+      "sha256": "1967fad83ae476fc08eeb875c339e8f6490d335d1acd16e5bf1dbc895f70e4a1"
     }
   ]
 }
