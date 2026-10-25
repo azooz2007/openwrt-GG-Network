@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.4.6-19E3C0?style=for-the-badge" alt="version">
+  <img src="https://img.shields.io/badge/version-1.4.7-19E3C0?style=for-the-badge" alt="version">
   &nbsp;
   <img src="https://img.shields.io/badge/OpenWrt-24.10%20%7C%2025.12%20%7C%20snapshot-00B5E2?style=for-the-badge" alt="OpenWrt">
 </p>
@@ -63,12 +63,13 @@ The packages pull `kmod-nft-tproxy`, `ca-bundle` and `luci-base` by themselves.
 
 ## Download
 
-Pick the file for your router's CPU and OpenWrt version:
+Pick the file for your router's CPU and OpenWrt version (also on the
+[Releases](https://github.com/azooz2007/openwrt-GG-Network/releases/latest) page):
 
 | CPU (package architecture) | Routers | OpenWrt 24.10 | OpenWrt 25.12 / snapshot | Any version (installer) |
 |---|---|---|---|---|
-| `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.4.6-r1_aarch64_cortex-a53.ipk`](ggnet_1.4.6-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.4.6-r1-aarch64_cortex-a53.apk`](ggnet-1.4.6-r1-aarch64_cortex-a53.apk) | [`ggnet-1.4.6-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.4.6-r1-aarch64_cortex-a53-installer.tar.gz) |
-| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.4.6-r1_x86_64.ipk`](ggnet_1.4.6-r1_x86_64.ipk) | [`ggnet-1.4.6-r1-x86_64.apk`](ggnet-1.4.6-r1-x86_64.apk) | [`ggnet-1.4.6-r1-x86_64-installer.tar.gz`](ggnet-1.4.6-r1-x86_64-installer.tar.gz) |
+| `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.4.7-r1_aarch64_cortex-a53.ipk`](ggnet_1.4.7-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.4.7-r1-aarch64_cortex-a53.apk`](ggnet-1.4.7-r1-aarch64_cortex-a53.apk) | [`ggnet-1.4.7-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.4.7-r1-aarch64_cortex-a53-installer.tar.gz) |
+| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.4.7-r1_x86_64.ipk`](ggnet_1.4.7-r1_x86_64.ipk) | [`ggnet-1.4.7-r1-x86_64.apk`](ggnet-1.4.7-r1-x86_64.apk) | [`ggnet-1.4.7-r1-x86_64-installer.tar.gz`](ggnet-1.4.7-r1-x86_64-installer.tar.gz) |
 
 Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snapshot) or
 `opkg print-architecture` (24.10).
@@ -82,7 +83,7 @@ Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snaps
 
 ```sh
 opkg update
-opkg install /tmp/ggnet_1.4.6-r1_aarch64_cortex-a53.ipk
+opkg install /tmp/ggnet_1.4.7-r1_aarch64_cortex-a53.ipk
 ```
 
 **OpenWrt 25.12 / snapshot / ImmortalWrt** (`.apk`) — trust the GG Network key once, then install:
@@ -90,7 +91,7 @@ opkg install /tmp/ggnet_1.4.6-r1_aarch64_cortex-a53.ipk
 ```sh
 wget -O /etc/apk/keys/ggnet.pem https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-apk-key.pem
 apk update
-apk add /tmp/ggnet-1.4.6-r1-aarch64_cortex-a53.apk
+apk add /tmp/ggnet-1.4.7-r1-aarch64_cortex-a53.apk
 ```
 
 (The file names above are for the BPI-R4; use the one for your CPU from the table.)
@@ -107,7 +108,7 @@ start at boot, and automatic updates.
 
 ## Updating
 
-GG Network checks this page every 6 hours and shows a banner when a new version is out.
+GG Network checks the releases here every 6 hours and shows a banner when a new version is out.
 With **Install updates automatically** on (the default), it installs it by itself while no game is
 running, then reconnects. You can also press **About → Check for updates → Update**.
 Your settings and sign-in are kept.
@@ -133,15 +134,15 @@ Everything GG Network set up on the router is removed with it.
 
 ## What's new
 
-### 1.4.6
+### 1.4.7
 
-- BETA "Program" column: 36 more games from a second research round (346 with ports), e.g. SoulWorker,
-  Lineage, Honkai Impact 3rd, HoN Reborn, FIFA 14-20, KartRider, Battlerite, BGMI, War Rock, World War Z,
-  Rusty Hearts, Myth of Soma, Nexus. 16×16 icons (from each game's official site) for 40 of the games that
-  had none (`tools/gamelist/extra_icons.py`), stored in the app like the others.
-- **Connections fits the screen**: icon buttons (IP, IP:P, ⛓, ✕) with the full text as tooltips, a
-  shorter route badge (🔥 AGGR), shorter titles, smaller text; long device and program names are cut
-  with "…" (full name on hover).
+- **Updates come from the public [openwrt-GG-Network](https://github.com/azooz2007/openwrt-GG-Network)
+  repository** (install files only). The router reads its GitHub releases, picks the file for its CPU and
+  package type (`.apk` on 25.12 / snapshot, `.ipk` on 24.10) and checks it against the SHA-256 GitHub
+  publishes. With no release yet, or when GitHub's API limit is hit, it uses the repository's `latest.json`.
+  Routers on 1.4.6 or older look in the old private repository, so install 1.4.7 by hand once.
+- `build.sh` refreshes the public folder after every build (`tools/publish/publish.py`): this version's
+  files, README, CHANGELOG, `latest.json`, the apk key, and the release notes to paste into GitHub.
 
 Older versions: [CHANGELOG.md](CHANGELOG.md).
 

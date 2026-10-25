@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.4.7
+
+- **Updates come from the public [openwrt-GG-Network](https://github.com/azooz2007/openwrt-GG-Network)
+  repository** (install files only). The router reads its GitHub releases, picks the file for its CPU and
+  package type (`.apk` on 25.12 / snapshot, `.ipk` on 24.10) and checks it against the SHA-256 GitHub
+  publishes. With no release yet, or when GitHub's API limit is hit, it uses the repository's `latest.json`.
+  Routers on 1.4.6 or older look in the old private repository, so install 1.4.7 by hand once.
+- `build.sh` refreshes the public folder after every build (`tools/publish/publish.py`): this version's
+  files, README, CHANGELOG, `latest.json`, the apk key, and the release notes to paste into GitHub.
+
 ## 1.4.6
 
 - BETA "Program" column: 36 more games from a second research round (346 with ports), e.g. SoulWorker,
