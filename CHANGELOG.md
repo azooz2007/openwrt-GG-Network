@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.8
+
+- A version to test updating from the GG Network tab (About → Check for updates, or the banner) on
+  routers that run 1.4.7. No changes to how GG Network works.
+- README: what to do when the `.apk` install says `UNTRUSTED signature` (add the key once and check
+  with `apk verify`, download the real file, a different feed's warning, `--allow-untrusted` as a last
+  resort).
+
 ## 1.4.7
 
 - **Updates come from the public [openwrt-GG-Network](https://github.com/azooz2007/openwrt-GG-Network)

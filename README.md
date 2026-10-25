@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.4.7-19E3C0?style=for-the-badge" alt="version">
+  <img src="https://img.shields.io/badge/version-1.4.8-19E3C0?style=for-the-badge" alt="version">
   &nbsp;
   <img src="https://img.shields.io/badge/OpenWrt-24.10%20%7C%2025.12%20%7C%20snapshot-00B5E2?style=for-the-badge" alt="OpenWrt">
 </p>
@@ -68,8 +68,8 @@ Pick the file for your router's CPU and OpenWrt version (also on the
 
 | CPU (package architecture) | Routers | OpenWrt 24.10 | OpenWrt 25.12 / snapshot | Any version (installer) |
 |---|---|---|---|---|
-| `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.4.7-r1_aarch64_cortex-a53.ipk`](ggnet_1.4.7-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.4.7-r1-aarch64_cortex-a53.apk`](ggnet-1.4.7-r1-aarch64_cortex-a53.apk) | [`ggnet-1.4.7-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.4.7-r1-aarch64_cortex-a53-installer.tar.gz) |
-| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.4.7-r1_x86_64.ipk`](ggnet_1.4.7-r1_x86_64.ipk) | [`ggnet-1.4.7-r1-x86_64.apk`](ggnet-1.4.7-r1-x86_64.apk) | [`ggnet-1.4.7-r1-x86_64-installer.tar.gz`](ggnet-1.4.7-r1-x86_64-installer.tar.gz) |
+| `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.4.8-r1_aarch64_cortex-a53.ipk`](ggnet_1.4.8-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.4.8-r1-aarch64_cortex-a53.apk`](ggnet-1.4.8-r1-aarch64_cortex-a53.apk) | [`ggnet-1.4.8-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.4.8-r1-aarch64_cortex-a53-installer.tar.gz) |
+| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.4.8-r1_x86_64.ipk`](ggnet_1.4.8-r1_x86_64.ipk) | [`ggnet-1.4.8-r1-x86_64.apk`](ggnet-1.4.8-r1-x86_64.apk) | [`ggnet-1.4.8-r1-x86_64-installer.tar.gz`](ggnet-1.4.8-r1-x86_64-installer.tar.gz) |
 
 Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snapshot) or
 `opkg print-architecture` (24.10).
@@ -83,7 +83,7 @@ Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snaps
 
 ```sh
 opkg update
-opkg install /tmp/ggnet_1.4.7-r1_aarch64_cortex-a53.ipk
+opkg install /tmp/ggnet_1.4.8-r1_aarch64_cortex-a53.ipk
 ```
 
 **OpenWrt 25.12 / snapshot / ImmortalWrt** (`.apk`) — trust the GG Network key once, then install:
@@ -91,10 +91,40 @@ opkg install /tmp/ggnet_1.4.7-r1_aarch64_cortex-a53.ipk
 ```sh
 wget -O /etc/apk/keys/ggnet.pem https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-apk-key.pem
 apk update
-apk add /tmp/ggnet-1.4.7-r1-aarch64_cortex-a53.apk
+apk add /tmp/ggnet-1.4.8-r1-aarch64_cortex-a53.apk
 ```
 
 (The file names above are for the BPI-R4; use the one for your CPU from the table.)
+
+### If the `.apk` says `UNTRUSTED signature`
+
+GG Network packages are signed. apk only installs them once your router trusts the GG Network key.
+
+1. **Add the key and check the file.** The key is the same for every version, so you only add it once:
+
+   ```sh
+   wget -O /etc/apk/keys/ggnet.pem https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-apk-key.pem
+   apk verify /tmp/ggnet-1.4.8-r1-aarch64_cortex-a53.apk
+   ```
+
+   `OK` means the key and the file are fine: run `apk add /tmp/ggnet-1.4.8-r1-aarch64_cortex-a53.apk`.
+
+2. **Still `UNTRUSTED`? Check that you have the real file.** It's about 4 MB. Saving the GitHub page from
+   the browser saves a web page, not the package. Download it straight to the router instead:
+
+   ```sh
+   wget -O /tmp/ggnet-1.4.8-r1-aarch64_cortex-a53.apk https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-1.4.8-r1-aarch64_cortex-a53.apk
+   ```
+
+3. **The message names another feed?** If `apk update` prints `UNTRUSTED signature` for a feed
+   that isn't GG Network (a third-party feed you added), that feed is the problem, not GG Network. The
+   `apk add /tmp/...` above still installs GG Network.
+
+4. **Last resort:** `apk add --allow-untrusted /tmp/ggnet-1.4.8-r1-aarch64_cortex-a53.apk`. This installs the GG Network key
+   too, so later updates from the GG Network tab are checked again.
+
+The LuCI **Upload Package…** button gives the same message when the key is missing. Do step 1, then
+upload again.
 
 ## First start
 
@@ -126,7 +156,7 @@ Everything GG Network set up on the router is removed with it.
 
 | Problem | What to do |
 |---|---|
-| `UNTRUSTED signature` when installing the `.apk` | Add the key (the `wget` line in [Install](#install)), then try again. |
+| `UNTRUSTED signature` when installing the `.apk` | See [If the .apk says UNTRUSTED signature](#if-the-apk-says-untrusted-signature). |
 | "Choose your devices" when pressing Start | Settings → Devices: pick your PC/console, or switch to "All LAN devices". |
 | "Panel unreachable, reconnecting…" | GGamers' server is busy or your internet dropped. Your games keep running; it reconnects by itself. |
 | A game doesn't go through | Settings → Protocol & bypass: make sure its ports aren't bypassed (e.g. switch off "Bypass voice chat" for a game that uses STUN). |
@@ -134,15 +164,13 @@ Everything GG Network set up on the router is removed with it.
 
 ## What's new
 
-### 1.4.7
+### 1.4.8
 
-- **Updates come from the public [openwrt-GG-Network](https://github.com/azooz2007/openwrt-GG-Network)
-  repository** (install files only). The router reads its GitHub releases, picks the file for its CPU and
-  package type (`.apk` on 25.12 / snapshot, `.ipk` on 24.10) and checks it against the SHA-256 GitHub
-  publishes. With no release yet, or when GitHub's API limit is hit, it uses the repository's `latest.json`.
-  Routers on 1.4.6 or older look in the old private repository, so install 1.4.7 by hand once.
-- `build.sh` refreshes the public folder after every build (`tools/publish/publish.py`): this version's
-  files, README, CHANGELOG, `latest.json`, the apk key, and the release notes to paste into GitHub.
+- A version to test updating from the GG Network tab (About → Check for updates, or the banner) on
+  routers that run 1.4.7. No changes to how GG Network works.
+- README: what to do when the `.apk` install says `UNTRUSTED signature` (add the key once and check
+  with `apk verify`, download the real file, a different feed's warning, `--allow-untrusted` as a last
+  resort).
 
 Older versions: [CHANGELOG.md](CHANGELOG.md).
 

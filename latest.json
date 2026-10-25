@@ -1,38 +1,38 @@
 {
-  "version": "1.4.7",
-  "published": "2026-10-25T04:23:47Z",
-  "notes": "- **Updates come from the public [openwrt-GG-Network](https://github.com/azooz2007/openwrt-GG-Network)\n  repository** (install files only). The router reads its GitHub releases, picks the file for its CPU and\n  package type (`.apk` on 25.12 / snapshot, `.ipk` on 24.10) and checks it against the SHA-256 GitHub\n  publishes. With no release yet, or when GitHub's API limit is hit, it uses the repository's `latest.json`.\n  Routers on 1.4.6 or older look in the old private repository, so install 1.4.7 by hand once.\n- `build.sh` refreshes the public folder after every build (`tools/publish/publish.py`): this version's\n  files, README, CHANGELOG, `latest.json`, the apk key, and the release notes to paste into GitHub.",
+  "version": "1.4.8",
+  "published": "2026-10-25T04:34:49Z",
+  "notes": "- A version to test updating from the GG Network tab (About → Check for updates, or the banner) on\n  routers that run 1.4.7. No changes to how GG Network works.\n- README: what to do when the `.apk` install says `UNTRUSTED signature` (add the key once and check\n  with `apk verify`, download the real file, a different feed's warning, `--allow-untrusted` as a last\n  resort).",
   "prerelease": false,
   "files": [
     {
-      "name": "ggnet-1.4.7-r1-aarch64_cortex-a53-installer.tar.gz",
-      "size": 4419934,
-      "sha256": "a862b77454e0c9cc8ee4daa9bae682c52bf8cd8fef2f1ef051ec975b1f22f8ba"
+      "name": "ggnet-1.4.8-r1-aarch64_cortex-a53-installer.tar.gz",
+      "size": 4419933,
+      "sha256": "98b0e20a1683709d25876445d6d952c4846ae302f91c859d41c5d5d184ec1d8c"
     },
     {
-      "name": "ggnet-1.4.7-r1-aarch64_cortex-a53.apk",
-      "size": 4368026,
-      "sha256": "1150d4e2fad9968dd8b1355a34ab469d70a87b36cee725f8812d46d988c1dfa0"
+      "name": "ggnet-1.4.8-r1-aarch64_cortex-a53.apk",
+      "size": 4368016,
+      "sha256": "c5a6ff8ac6bb79c85917c9602d742ede93b0de54ff92a4e0acd530941a88752a"
     },
     {
-      "name": "ggnet-1.4.7-r1-x86_64-installer.tar.gz",
-      "size": 4790943,
-      "sha256": "b86bdbad8f7dd1c2d28dbc9b1695c9bf777e81066844c3e09ba141525659f108"
+      "name": "ggnet-1.4.8-r1-x86_64-installer.tar.gz",
+      "size": 4790941,
+      "sha256": "fdd4c16f291f5868dc1a7f46ab0dc860baf2642d459c761d1f901f9816e05bd8"
     },
     {
-      "name": "ggnet-1.4.7-r1-x86_64.apk",
-      "size": 4747984,
-      "sha256": "edf8d81c2041a59705b0b53ac7208adc1a13eb5e8dc48dedae284b814846d445"
+      "name": "ggnet-1.4.8-r1-x86_64.apk",
+      "size": 4747969,
+      "sha256": "3f2b5c1745efa6d21578e69888bc3ec7449bb3f5dfbec2ea7c8de002a62a2223"
     },
     {
-      "name": "ggnet_1.4.7-r1_aarch64_cortex-a53.ipk",
-      "size": 4417141,
-      "sha256": "2e7e45aa81784947fbb7295b95b588769cd20681f36f994956b880e62280dd1c"
+      "name": "ggnet_1.4.8-r1_aarch64_cortex-a53.ipk",
+      "size": 4417246,
+      "sha256": "94735abdc659ae7d4ca3893255a42b450ca1362ec2f6284acfea05b63dcdca3a"
     },
     {
-      "name": "ggnet_1.4.7-r1_x86_64.ipk",
-      "size": 4786184,
-      "sha256": "2f50f5e132a34b59d2498b656fb59f4680e1ea33b8693350ae6f11dbf3d14fc7"
+      "name": "ggnet_1.4.8-r1_x86_64.ipk",
+      "size": 4786347,
+      "sha256": "f16e6ff9de913f2c6aa25a2dd66f932532211cbd74c5f4cb0306fdce9b633a41"
     }
   ]
 }
