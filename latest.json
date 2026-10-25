@@ -1,0 +1,38 @@
+{
+  "version": "1.4.6",
+  "published": "2026-10-25T04:14:55Z",
+  "notes": "- BETA \"Program\" column: 36 more games from a second research round (346 with ports), e.g. SoulWorker,\n  Lineage, Honkai Impact 3rd, HoN Reborn, FIFA 14-20, KartRider, Battlerite, BGMI, War Rock, World War Z,\n  Rusty Hearts, Myth of Soma, Nexus. 16×16 icons (from each game's official site) for 40 of the games that\n  had none (`tools/gamelist/extra_icons.py`), stored in the app like the others.\n- **Connections fits the screen**: icon buttons (IP, IP:P, ⛓, ✕) with the full text as tooltips, a\n  shorter route badge (🔥 AGGR), shorter titles, smaller text; long device and program names are cut\n  with \"…\" (full name on hover).",
+  "prerelease": false,
+  "files": [
+    {
+      "name": "ggnet-1.4.6-r1-aarch64_cortex-a53-installer.tar.gz",
+      "size": 4419463,
+      "sha256": "4ca857e570351640a763aa9faac8ae5e41a478265e6fc84e9b6fa1bd0bc71335"
+    },
+    {
+      "name": "ggnet-1.4.6-r1-aarch64_cortex-a53.apk",
+      "size": 4366485,
+      "sha256": "81af316a6d86fdae0cac487606da0b12fd3bb07de417d8cb53292fc6b1dfcab3"
+    },
+    {
+      "name": "ggnet-1.4.6-r1-x86_64-installer.tar.gz",
+      "size": 4789256,
+      "sha256": "75d1335abb4b1878f6a3b538a3d37eedd60343bb3d498eff57773e0fc00d025d"
+    },
+    {
+      "name": "ggnet-1.4.6-r1-x86_64.apk",
+      "size": 4746396,
+      "sha256": "7d00a23ee23070e3fe4aa7cf9be9c0fcc13489ece444a406d98507c19ca4a786"
+    },
+    {
+      "name": "ggnet_1.4.6-r1_aarch64_cortex-a53.ipk",
+      "size": 4416439,
+      "sha256": "67e809ee8ebb062f658c5d6fb528f9e51c4cec41b00cfa586dbe7e85b96bad1c"
+    },
+    {
+      "name": "ggnet_1.4.6-r1_x86_64.ipk",
+      "size": 4784878,
+      "sha256": "82c4f5e854abd7b2088626b5fcd442ba263647d15f5ec28b5f38f2f10041fdf4"
+    }
+  ]
+}
