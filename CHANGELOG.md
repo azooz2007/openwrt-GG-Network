@@ -1,5 +1,90 @@
 # Changelog
 
+## 1.7.1
+
+Synced to client spec **1.43.0** (beta Smart route: 1.42.1 + 1.43.0).
+
+- Smart route signs in as `<user>+smart` only: no device or game name any more. Aggressive mode
+  sessions ask with `"smart": true` only.
+- The connection card shows **one line per game server** of the last 10 minutes, newest first, each with
+  its own exit: `You (23 ms) → Riyadh-1 → France-1 (exit) → 52.28.27.129:38090 · 84 ms · saves 13 ms`,
+  or `… → Riyadh-1 (exit) → 13.234.10.5:443 · direct is fastest`. No ms is shown while the server has no
+  number yet (`ms` 0). "Routes of this connection" has no game column; `how` is shown as sent
+  (`measured: last hop 9 (…)`, `measured: ping (traced)`, `real game traffic …`).
+- Each new route is logged once as `smartroute: 52.28.27.129:38090 via Riyadh-1 → France-1 (exit) 84 ms`.
+- You still pick Smart route yourself (Normal route / Smart route).
+
+## 1.7.0
+
+Synced to client spec **1.42.0** (beta: Smart route). Built as one separate, removable piece
+(`core/smartroute.go`, `api/smartroute.go`, `ggnet/smartroute.js`, one-line hooks marked
+"beta (smartroute.go)").
+
+- **🧭 Smart route (BETA)**, shown on the connection card when GGamers offers it
+  (`client_config.smart_route`, re-read on every heartbeat; it disappears when withdrawn).
+  **You pick it**, like Normal and Aggressive mode: *Normal route* or *🧭 Smart route*. Your pick is
+  saved and applies to new game connections at once; running games keep their path.
+- With Smart route picked, on a server that can do it (`smart: true`), GG Network signs in as
+  `<user>+smart.<device>`: the LAN device's name is the game's name (`router` when the device has
+  none), so each device keeps one exit for its game. GGamers takes every game server out through the
+  fastest of up to 3 servers. A refused `+smart` sign-in is retried once without it and logged; Smart
+  route then stays off until the next start. Combos are never re-routed.
+- Aggressive mode: while `smart_route.aggressive` is on, the session asks for Smart route too
+  (`"smart": true, "game": "router"`).
+- While connected, the routes GGamers chose (`GET /api/client/smartroute`, every `poll_sec`) are shown
+  from the first server to the exit: `You (23 ms) → Riyadh-1 → France-1 (exit) → game server · 84 ms`,
+  "choosing the best path…" before the first one, "(direct is fastest)" when the entry is the exit.
+  "Routes of this connection" lists game, game server, path, exit, ms, saved ms and how it was measured.
+  Each new route is logged once: `smartroute: gaming-pc 52.28.27.129:38090 via Riyadh-1 → France-1 (exit) 84 ms`.
+
+## 1.6.0
+
+Synced to client spec **1.40.0** (editing combos).
+
+- **Edit your combos**: an Edit button on your own combos opens the combo builder filled in (route,
+  target country, game server, name, provider, connection type) as "Edit combo «name»"; Save changes
+  sends the whole combo (`PATCH /api/client/combos/{id}`), Cancel closes it. When players attached it,
+  you're told first that they keep it as it is now, as their own copy. After saving: "New connections
+  use the new route. Games that are running keep theirs until they reconnect." "Nothing changed" just
+  closes the editor; the panel's own messages are shown as they are.
+- **Changes made elsewhere are picked up**: the heartbeat's `combos_rev` reloads the combo list when
+  anything in it changed (an edit on the panel or another device, an attach, an admin switching a combo).
+- **The combo you picked was changed**:
+  - by its owner (you had attached it): GG Network switches silently to your private copy of the version
+    you were using and says once "<owner> changed «name». You keep the version you were using as «copy».";
+  - your own one, or an official one: "This combo was changed: the new route is used from your next
+    connection."
+  While connected, running game connections keep their route; new ones use the new route (SOCKS5 and a
+  new Aggressive mode session). The old session finishes with the connections it carries, then closes.
+- Combo cards show "Edited 27 Oct, 14:20" on your combos and "Changed by its owner …" on attached ones.
+
+## 1.5.0
+
+Synced to client spec **1.39.0** (Aggressive mode: three named modes, Direct path, separate ports).
+
+- **Aggressive Direct path: Aggressive mode on a single server.** The old rule "Aggressive mode runs only
+  on combos" is gone: on a server with Aggressive mode, GG Network asks for a `node_id` session and sends
+  the copies straight to that server. The panel switches it with `aggressive_mode.direct` (missing = on);
+  when it's off the log says "Aggressive Direct path is off on the panel" and the server uses the normal
+  connection. A `403 feature_disabled` for a server session falls back to SOCKS5 the same way.
+- **Three named modes** everywhere: Aggressive Direct path, Aggressive Combo Single-path, Aggressive Combo
+  Multi-path. The session's `mode_name` is shown as is (Details, log); the staff connection choice uses the
+  same names and offers Direct path on a server.
+- **Every copy from its own local port** (`separate_ports`). GG Network asks for it; when the session says
+  yes, path 0 gets one UDP socket per copy and the shortcut one, each on its own port, so the internet
+  provider spreads the copies over different links. Every frame carries its socket's lane (HELLO and PING
+  too), every socket gets its own WELCOME and PONGs, recovery reopens every socket, CLOSE goes from every
+  socket. When the session says no (panel switch off, or an older node on the route) nothing changes.
+- One replay window for all sockets, one ordered queue to the game: racing sockets can't reorder a stream.
+  New tests (spec "required tests"): 3 sockets + shortcut with 0-30 ms random delay and 30% of copies lost
+  both ways carry 1 MB exactly with matching fingerprints; with every copy but copy 1 dropped, UDP and TCP
+  still work.
+- Details: the mode name, "separate ports ✔/✘", `spacing_ms` when set, and one line per socket (path, copy,
+  local port, WELCOME, round trip). Log at session start, e.g. `aggressive: Aggressive Combo Multi-path to
+  frankfurt-1 · separate ports on (route copy 1 :51234, route copy 2 :51235, shortcut :51236)`. Tunnel
+  counters are per socket (`p0c0 rx … ooo … dup …; p1c0 …`), in `tunnel_stream_end` too.
+- The route picture also shows Direct path (you → the server → the game).
+
 ## 1.4.9
 
 - **Fix: "This release has no .apk package for aarch64" on OpenWrt snapshot** (BPI-R4). The updater asked
