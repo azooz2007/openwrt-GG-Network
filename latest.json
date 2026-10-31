@@ -1,43 +1,58 @@
 {
-  "version": "1.7.1",
-  "published": "2026-10-27T05:36:08Z",
-  "notes": "Synced to client spec **1.43.0** (beta Smart route: 1.42.1 + 1.43.0).\n\n- Smart route signs in as `<user>+smart` only: no device or game name any more. Aggressive mode\n  sessions ask with `\"smart\": true` only.\n- The connection card shows **one line per game server** of the last 10 minutes, newest first, each with\n  its own exit: `You (23 ms) → Riyadh-1 → France-1 (exit) → 52.28.27.129:38090 · 84 ms · saves 13 ms`,\n  or `… → Riyadh-1 (exit) → 13.234.10.5:443 · direct is fastest`. No ms is shown while the server has no\n  number yet (`ms` 0). \"Routes of this connection\" has no game column; `how` is shown as sent\n  (`measured: last hop 9 (…)`, `measured: ping (traced)`, `real game traffic …`).\n- Each new route is logged once as `smartroute: 52.28.27.129:38090 via Riyadh-1 → France-1 (exit) 84 ms`.\n- You still pick Smart route yourself (Normal route / Smart route).",
+  "version": "1.7.2",
+  "published": "2026-10-31T05:07:39Z",
+  "notes": "Still client spec **1.43.0** (the panel has nothing newer for the app); brings the router level with\nthe Windows app 6.2.0 – 6.3.1.\n\n- **I have an invitation code**: a new link on the sign-in card (next to *Sign up*) opens the panel's\n  invitation sign-up page (`<server>/invite`). `status` has `invite_url`.\n- **NanoPi R3S / R3S LTS** (and other `rockchip/armv8` routers): packages for `aarch64_generic` in\n  every release (`.ipk`, `.apk`, installer). The router's updater picks them by itself.\n- Docs brought up to date: README (version, spec 1.43.0, install file names, features),\n  ARCHITECTURE (Aggressive Direct path and the three modes, Smart route), USAGE (Smart route, editing\n  combos). The SDK feed Makefile still said `PKG_VERSION` 1.6.0.",
   "prerelease": false,
   "files": [
     {
-      "name": "ggnet-1.7.1-r1-aarch64_cortex-a53-installer.tar.gz",
-      "size": 4447937,
-      "sha256": "384d3d11c38e81ff28cb2a6444b199450d60a1acff4379930f726cf0ed62058c"
+      "name": "ggnet-1.7.2-r1-aarch64_cortex-a53-installer.tar.gz",
+      "size": 4447852,
+      "sha256": "b668c627cd74f3d7ac82d8d6fa84562345d006eb020173b7ff87784f2bb0dc79"
     },
     {
-      "name": "ggnet-1.7.1-r1-aarch64_cortex-a53.apk",
-      "size": 4395178,
-      "sha256": "5cf4cf08e2ce7bf705efee3eaec7d798f5ee9b0a1b411d6fce85f87a45be0ec8"
+      "name": "ggnet-1.7.2-r1-aarch64_cortex-a53.apk",
+      "size": 4395250,
+      "sha256": "3741fbd7f3b0cf3c78fe0e270b0be4de641e7c54ee3cff2a0fbad38acbfc37f6"
     },
     {
-      "name": "ggnet-1.7.1-r1-x86_64-installer.tar.gz",
-      "size": 4822663,
-      "sha256": "533f2c5e63a5b9fb1e62b3fd377dee65c47257511b3722391b2c8bd6504d497f"
+      "name": "ggnet-1.7.2-r1-aarch64_generic-installer.tar.gz",
+      "size": 4447978,
+      "sha256": "a1bcd1f039075f51699ef95547ad000501d924b834aa24468e1256035eede5d5"
     },
     {
-      "name": "ggnet-1.7.1-r1-x86_64.apk",
-      "size": 4777849,
-      "sha256": "b62490763dbefdb20a41bea03eddedd3ef6614fd7f5092bffced855a98079086"
+      "name": "ggnet-1.7.2-r1-aarch64_generic.apk",
+      "size": 4395298,
+      "sha256": "f56f9e2052c22b564e696ff2008003c8c9cc16cd58147ef71b19377026751a00"
     },
     {
-      "name": "ggnet_1.7.1-r1_aarch64_cortex-a53.ipk",
-      "size": 4443462,
-      "sha256": "bdd3f8e889d1fa11461c2e99d29fcbeb1edfd8364a82c574a67ef6236bfe5c5d"
+      "name": "ggnet-1.7.2-r1-x86_64-installer.tar.gz",
+      "size": 4822420,
+      "sha256": "7a586cbfdead64fe6e4940840abde58715c76e697927057caffb42e867b742a1"
     },
     {
-      "name": "ggnet_1.7.1-r1_x86_64.ipk",
-      "size": 4817669,
-      "sha256": "7c6e9470aa930f1992c6531283dd7d7fefa7ca480a74e692eb0d8a04c2fb1a90"
+      "name": "ggnet-1.7.2-r1-x86_64.apk",
+      "size": 4777971,
+      "sha256": "978b4ae9d29e92b9430fb82d910c256ab87da898450379533e366d60beaafc34"
     },
     {
-      "name": "ggnet-1.7.1-r1-aarch64.apk",
-      "size": 4395178,
-      "sha256": "5cf4cf08e2ce7bf705efee3eaec7d798f5ee9b0a1b411d6fce85f87a45be0ec8"
+      "name": "ggnet_1.7.2-r1_aarch64_cortex-a53.ipk",
+      "size": 4443483,
+      "sha256": "f0d08065c36cbb45e4286c78866b64b791fbf1e853ac7d88e1b2928cfb1ddfa8"
+    },
+    {
+      "name": "ggnet_1.7.2-r1_aarch64_generic.ipk",
+      "size": 4443472,
+      "sha256": "1bf399031723d03c3763bc473d39a7775f895bdab43089161eef8506ea050e6b"
+    },
+    {
+      "name": "ggnet_1.7.2-r1_x86_64.ipk",
+      "size": 4817483,
+      "sha256": "dca47a6e03b55bcccd097a6bd22746d479ea2153c02b3902e2d51e64aa457008"
+    },
+    {
+      "name": "ggnet-1.7.2-r1-aarch64.apk",
+      "size": 4395250,
+      "sha256": "3741fbd7f3b0cf3c78fe0e270b0be4de641e7c54ee3cff2a0fbad38acbfc37f6"
     }
   ]
 }

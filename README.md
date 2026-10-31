@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.7.1-19E3C0?style=for-the-badge" alt="version">
+  <img src="https://img.shields.io/badge/version-1.7.2-19E3C0?style=for-the-badge" alt="version">
   &nbsp;
   <img src="https://img.shields.io/badge/OpenWrt-24.10%20%7C%2025.12%20%7C%20snapshot-00B5E2?style=for-the-badge" alt="OpenWrt">
 </p>
@@ -68,8 +68,9 @@ Pick the file for your router's CPU and OpenWrt version (also on the
 
 | CPU (package architecture) | Routers | OpenWrt 24.10 | OpenWrt 25.12 / snapshot | Any version (installer) |
 |---|---|---|---|---|
-| `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.7.1-r1_aarch64_cortex-a53.ipk`](ggnet_1.7.1-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.7.1-r1-aarch64_cortex-a53.apk`](ggnet-1.7.1-r1-aarch64_cortex-a53.apk) | [`ggnet-1.7.1-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.7.1-r1-aarch64_cortex-a53-installer.tar.gz) |
-| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.7.1-r1_x86_64.ipk`](ggnet_1.7.1-r1_x86_64.ipk) | [`ggnet-1.7.1-r1-x86_64.apk`](ggnet-1.7.1-r1-x86_64.apk) | [`ggnet-1.7.1-r1-x86_64-installer.tar.gz`](ggnet-1.7.1-r1-x86_64-installer.tar.gz) |
+| `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.7.2-r1_aarch64_cortex-a53.ipk`](ggnet_1.7.2-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.7.2-r1-aarch64_cortex-a53.apk`](ggnet-1.7.2-r1-aarch64_cortex-a53.apk) | [`ggnet-1.7.2-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.7.2-r1-aarch64_cortex-a53-installer.tar.gz) |
+| `aarch64_generic` | NanoPi R3S / R3S LTS, other Rockchip, Raspberry Pi 4/5 and generic ARM64 | [`ggnet_1.7.2-r1_aarch64_generic.ipk`](ggnet_1.7.2-r1_aarch64_generic.ipk) | [`ggnet-1.7.2-r1-aarch64_generic.apk`](ggnet-1.7.2-r1-aarch64_generic.apk) | [`ggnet-1.7.2-r1-aarch64_generic-installer.tar.gz`](ggnet-1.7.2-r1-aarch64_generic-installer.tar.gz) |
+| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.7.2-r1_x86_64.ipk`](ggnet_1.7.2-r1_x86_64.ipk) | [`ggnet-1.7.2-r1-x86_64.apk`](ggnet-1.7.2-r1-x86_64.apk) | [`ggnet-1.7.2-r1-x86_64-installer.tar.gz`](ggnet-1.7.2-r1-x86_64-installer.tar.gz) |
 
 Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snapshot) or
 `opkg print-architecture` (24.10).
@@ -83,7 +84,7 @@ Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snaps
 
 ```sh
 opkg update
-opkg install /tmp/ggnet_1.7.1-r1_aarch64_cortex-a53.ipk
+opkg install /tmp/ggnet_1.7.2-r1_aarch64_cortex-a53.ipk
 ```
 
 **OpenWrt 25.12 / snapshot / ImmortalWrt** (`.apk`) — trust the GG Network key once, then install:
@@ -91,7 +92,7 @@ opkg install /tmp/ggnet_1.7.1-r1_aarch64_cortex-a53.ipk
 ```sh
 wget -O /etc/apk/keys/ggnet.pem https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-apk-key.pem
 apk update
-apk add /tmp/ggnet-1.7.1-r1-aarch64_cortex-a53.apk
+apk add /tmp/ggnet-1.7.2-r1-aarch64_cortex-a53.apk
 ```
 
 (The file names above are for the BPI-R4; use the one for your CPU from the table.)
@@ -104,23 +105,23 @@ GG Network packages are signed. apk only installs them once your router trusts t
 
    ```sh
    wget -O /etc/apk/keys/ggnet.pem https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-apk-key.pem
-   apk verify /tmp/ggnet-1.7.1-r1-aarch64_cortex-a53.apk
+   apk verify /tmp/ggnet-1.7.2-r1-aarch64_cortex-a53.apk
    ```
 
-   `OK` means the key and the file are fine: run `apk add /tmp/ggnet-1.7.1-r1-aarch64_cortex-a53.apk`.
+   `OK` means the key and the file are fine: run `apk add /tmp/ggnet-1.7.2-r1-aarch64_cortex-a53.apk`.
 
 2. **Still `UNTRUSTED`? Check that you have the real file.** It's about 4 MB. Saving the GitHub page from
    the browser saves a web page, not the package. Download it straight to the router instead:
 
    ```sh
-   wget -O /tmp/ggnet-1.7.1-r1-aarch64_cortex-a53.apk https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-1.7.1-r1-aarch64_cortex-a53.apk
+   wget -O /tmp/ggnet-1.7.2-r1-aarch64_cortex-a53.apk https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-1.7.2-r1-aarch64_cortex-a53.apk
    ```
 
 3. **The message names another feed?** If `apk update` prints `UNTRUSTED signature` for a feed
    that isn't GG Network (a third-party feed you added), that feed is the problem, not GG Network. The
    `apk add /tmp/...` above still installs GG Network.
 
-4. **Last resort:** `apk add --allow-untrusted /tmp/ggnet-1.7.1-r1-aarch64_cortex-a53.apk`. This installs the GG Network key
+4. **Last resort:** `apk add --allow-untrusted /tmp/ggnet-1.7.2-r1-aarch64_cortex-a53.apk`. This installs the GG Network key
    too, so later updates from the GG Network tab are checked again.
 
 The LuCI **Upload Package…** button gives the same message when the key is missing. Do step 1, then
@@ -164,19 +165,18 @@ Everything GG Network set up on the router is removed with it.
 
 ## What's new
 
-### 1.7.1
+### 1.7.2
 
-Synced to client spec **1.43.0** (beta Smart route: 1.42.1 + 1.43.0).
+Still client spec **1.43.0** (the panel has nothing newer for the app); brings the router level with
+the Windows app 6.2.0 – 6.3.1.
 
-- Smart route signs in as `<user>+smart` only: no device or game name any more. Aggressive mode
-  sessions ask with `"smart": true` only.
-- The connection card shows **one line per game server** of the last 10 minutes, newest first, each with
-  its own exit: `You (23 ms) → Riyadh-1 → France-1 (exit) → 52.28.27.129:38090 · 84 ms · saves 13 ms`,
-  or `… → Riyadh-1 (exit) → 13.234.10.5:443 · direct is fastest`. No ms is shown while the server has no
-  number yet (`ms` 0). "Routes of this connection" has no game column; `how` is shown as sent
-  (`measured: last hop 9 (…)`, `measured: ping (traced)`, `real game traffic …`).
-- Each new route is logged once as `smartroute: 52.28.27.129:38090 via Riyadh-1 → France-1 (exit) 84 ms`.
-- You still pick Smart route yourself (Normal route / Smart route).
+- **I have an invitation code**: a new link on the sign-in card (next to *Sign up*) opens the panel's
+  invitation sign-up page (`<server>/invite`). `status` has `invite_url`.
+- **NanoPi R3S / R3S LTS** (and other `rockchip/armv8` routers): packages for `aarch64_generic` in
+  every release (`.ipk`, `.apk`, installer). The router's updater picks them by itself.
+- Docs brought up to date: README (version, spec 1.43.0, install file names, features),
+  ARCHITECTURE (Aggressive Direct path and the three modes, Smart route), USAGE (Smart route, editing
+  combos). The SDK feed Makefile still said `PKG_VERSION` 1.6.0.
 
 Older versions: [CHANGELOG.md](CHANGELOG.md).
 

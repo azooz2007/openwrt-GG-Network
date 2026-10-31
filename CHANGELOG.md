@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.7.2
+
+Still client spec **1.43.0** (the panel has nothing newer for the app); brings the router level with
+the Windows app 6.2.0 – 6.3.1.
+
+- **I have an invitation code**: a new link on the sign-in card (next to *Sign up*) opens the panel's
+  invitation sign-up page (`<server>/invite`). `status` has `invite_url`.
+- **NanoPi R3S / R3S LTS** (and other `rockchip/armv8` routers): packages for `aarch64_generic` in
+  every release (`.ipk`, `.apk`, installer). The router's updater picks them by itself.
+- Docs brought up to date: README (version, spec 1.43.0, install file names, features),
+  ARCHITECTURE (Aggressive Direct path and the three modes, Smart route), USAGE (Smart route, editing
+  combos). The SDK feed Makefile still said `PKG_VERSION` 1.6.0.
+
 ## 1.7.1
 
 Synced to client spec **1.43.0** (beta Smart route: 1.42.1 + 1.43.0).
