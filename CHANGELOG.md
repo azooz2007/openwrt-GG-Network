@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.8.0
+
+Synced to client spec **1.47.0** (1.44.0 and 1.45.0 have nothing for the app).
+
+- **Fix: maintenance notices piled up.** Every maintenance added its warnings (one per heartbeat),
+  "started" and "back to normal" to the Notices list, so after a few maintenances the connection page
+  showed all of them. Now a maintenance notice replaces the previous one, the service being back
+  removes them (spec §4.1), and "Service is back to normal" itself goes away after 10 minutes.
+- **Account notices (1.47)**: `notice` from sign-in, `/me` and every heartbeat is shown above the
+  connection card as GGamers words it. Blocking (`expired`, `quota_exceeded`, `disabled`, `banned`):
+  Start is disabled with that message and a running connection is stopped. `expiring`: a reminder
+  banner while it lasts and a notice at most once a day. When it goes away (renewed) you can connect
+  again. `status` has `account_notice`.
+- **Free trial accounts (1.46, 1.47)**: `403 trial_used` at sign-in shows GGamers' message, isn't
+  retried and keeps the device key (also after a silent re-login). For trial accounts (`chat_role`
+  `trial`, `status.trial`) the Combos page shows Connect only: no builder, marketplace, edit, delete,
+  attach or detach (they answer `trial_restricted`). Chat rank `trial`: violet `#9179f5`, no badge.
+
 ## 1.7.2
 
 Still client spec **1.43.0** (the panel has nothing newer for the app); brings the router level with

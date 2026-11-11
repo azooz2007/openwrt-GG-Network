@@ -1,58 +1,28 @@
 {
-  "version": "1.7.2",
-  "published": "2026-10-31T05:07:39Z",
-  "notes": "Still client spec **1.43.0** (the panel has nothing newer for the app); brings the router level with\nthe Windows app 6.2.0 – 6.3.1.\n\n- **I have an invitation code**: a new link on the sign-in card (next to *Sign up*) opens the panel's\n  invitation sign-up page (`<server>/invite`). `status` has `invite_url`.\n- **NanoPi R3S / R3S LTS** (and other `rockchip/armv8` routers): packages for `aarch64_generic` in\n  every release (`.ipk`, `.apk`, installer). The router's updater picks them by itself.\n- Docs brought up to date: README (version, spec 1.43.0, install file names, features),\n  ARCHITECTURE (Aggressive Direct path and the three modes, Smart route), USAGE (Smart route, editing\n  combos). The SDK feed Makefile still said `PKG_VERSION` 1.6.0.",
+  "version": "1.8.0",
+  "published": "2026-11-11T04:52:58Z",
+  "notes": "Synced to client spec **1.47.0** (1.44.0 and 1.45.0 have nothing for the app).\n\n- **Fix: maintenance notices piled up.** Every maintenance added its warnings (one per heartbeat),\n  \"started\" and \"back to normal\" to the Notices list, so after a few maintenances the connection page\n  showed all of them. Now a maintenance notice replaces the previous one, the service being back\n  removes them (spec §4.1), and \"Service is back to normal\" itself goes away after 10 minutes.\n- **Account notices (1.47)**: `notice` from sign-in, `/me` and every heartbeat is shown above the\n  connection card as GGamers words it. Blocking (`expired`, `quota_exceeded`, `disabled`, `banned`):\n  Start is disabled with that message and a running connection is stopped. `expiring`: a reminder\n  banner while it lasts and a notice at most once a day. When it goes away (renewed) you can connect\n  again. `status` has `account_notice`.\n- **Free trial accounts (1.46, 1.47)**: `403 trial_used` at sign-in shows GGamers' message, isn't\n  retried and keeps the device key (also after a silent re-login). For trial accounts (`chat_role`\n  `trial`, `status.trial`) the Combos page shows Connect only: no builder, marketplace, edit, delete,\n  attach or detach (they answer `trial_restricted`). Chat rank `trial`: violet `#9179f5`, no badge.",
   "prerelease": false,
   "files": [
     {
-      "name": "ggnet-1.7.2-r1-aarch64_cortex-a53-installer.tar.gz",
-      "size": 4447852,
-      "sha256": "b668c627cd74f3d7ac82d8d6fa84562345d006eb020173b7ff87784f2bb0dc79"
+      "name": "ggnet-1.8.0-r1-aarch64_cortex-a53-installer.tar.gz",
+      "size": 4453735,
+      "sha256": "063495dbfd9aa54d796c3886eb4bcf89cbff5a3f5ad488c5d41c2d92499715ea"
     },
     {
-      "name": "ggnet-1.7.2-r1-aarch64_cortex-a53.apk",
-      "size": 4395250,
-      "sha256": "3741fbd7f3b0cf3c78fe0e270b0be4de641e7c54ee3cff2a0fbad38acbfc37f6"
+      "name": "ggnet-1.8.0-r1-aarch64_cortex-a53.apk",
+      "size": 4402490,
+      "sha256": "5eb404563e2ed76b0d3d6e7941eb2cf304b382f9a3a4c03b18f9e97d4303aa4c"
     },
     {
-      "name": "ggnet-1.7.2-r1-aarch64_generic-installer.tar.gz",
-      "size": 4447978,
-      "sha256": "a1bcd1f039075f51699ef95547ad000501d924b834aa24468e1256035eede5d5"
+      "name": "ggnet_1.8.0-r1_aarch64_cortex-a53.ipk",
+      "size": 4449858,
+      "sha256": "97b4b6254693dfe0a97a426310b5c9d8cd76b654e32ad91ec24d55c2ec3fb4b0"
     },
     {
-      "name": "ggnet-1.7.2-r1-aarch64_generic.apk",
-      "size": 4395298,
-      "sha256": "f56f9e2052c22b564e696ff2008003c8c9cc16cd58147ef71b19377026751a00"
-    },
-    {
-      "name": "ggnet-1.7.2-r1-x86_64-installer.tar.gz",
-      "size": 4822420,
-      "sha256": "7a586cbfdead64fe6e4940840abde58715c76e697927057caffb42e867b742a1"
-    },
-    {
-      "name": "ggnet-1.7.2-r1-x86_64.apk",
-      "size": 4777971,
-      "sha256": "978b4ae9d29e92b9430fb82d910c256ab87da898450379533e366d60beaafc34"
-    },
-    {
-      "name": "ggnet_1.7.2-r1_aarch64_cortex-a53.ipk",
-      "size": 4443483,
-      "sha256": "f0d08065c36cbb45e4286c78866b64b791fbf1e853ac7d88e1b2928cfb1ddfa8"
-    },
-    {
-      "name": "ggnet_1.7.2-r1_aarch64_generic.ipk",
-      "size": 4443472,
-      "sha256": "1bf399031723d03c3763bc473d39a7775f895bdab43089161eef8506ea050e6b"
-    },
-    {
-      "name": "ggnet_1.7.2-r1_x86_64.ipk",
-      "size": 4817483,
-      "sha256": "dca47a6e03b55bcccd097a6bd22746d479ea2153c02b3902e2d51e64aa457008"
-    },
-    {
-      "name": "ggnet-1.7.2-r1-aarch64.apk",
-      "size": 4395250,
-      "sha256": "3741fbd7f3b0cf3c78fe0e270b0be4de641e7c54ee3cff2a0fbad38acbfc37f6"
+      "name": "ggnet-1.8.0-r1-aarch64.apk",
+      "size": 4402490,
+      "sha256": "5eb404563e2ed76b0d3d6e7941eb2cf304b382f9a3a4c03b18f9e97d4303aa4c"
     }
   ]
 }
