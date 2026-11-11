@@ -1,6 +1,6 @@
 {
   "version": "1.8.0",
-  "published": "2026-11-11T04:52:58Z",
+  "published": "2026-11-11T04:53:56Z",
   "notes": "Synced to client spec **1.47.0** (1.44.0 and 1.45.0 have nothing for the app).\n\n- **Fix: maintenance notices piled up.** Every maintenance added its warnings (one per heartbeat),\n  \"started\" and \"back to normal\" to the Notices list, so after a few maintenances the connection page\n  showed all of them. Now a maintenance notice replaces the previous one, the service being back\n  removes them (spec §4.1), and \"Service is back to normal\" itself goes away after 10 minutes.\n- **Account notices (1.47)**: `notice` from sign-in, `/me` and every heartbeat is shown above the\n  connection card as GGamers words it. Blocking (`expired`, `quota_exceeded`, `disabled`, `banned`):\n  Start is disabled with that message and a running connection is stopped. `expiring`: a reminder\n  banner while it lasts and a notice at most once a day. When it goes away (renewed) you can connect\n  again. `status` has `account_notice`.\n- **Free trial accounts (1.46, 1.47)**: `403 trial_used` at sign-in shows GGamers' message, isn't\n  retried and keeps the device key (also after a silent re-login). For trial accounts (`chat_role`\n  `trial`, `status.trial`) the Combos page shows Connect only: no builder, marketplace, edit, delete,\n  attach or detach (they answer `trial_restricted`). Chat rank `trial`: violet `#9179f5`, no badge.",
   "prerelease": false,
   "files": [
@@ -15,9 +15,39 @@
       "sha256": "5eb404563e2ed76b0d3d6e7941eb2cf304b382f9a3a4c03b18f9e97d4303aa4c"
     },
     {
+      "name": "ggnet-1.8.0-r1-aarch64_generic-installer.tar.gz",
+      "size": 4453712,
+      "sha256": "7d4ab4a9e4cd6afe56ac13b226a4f43554be45c03d53430ca553678d104f156f"
+    },
+    {
+      "name": "ggnet-1.8.0-r1-aarch64_generic.apk",
+      "size": 4402473,
+      "sha256": "f5aa62fa09847a4906bf1a8dca1813f3b551892ca13d0fd5eb01a9828ad9286f"
+    },
+    {
+      "name": "ggnet-1.8.0-r1-x86_64-installer.tar.gz",
+      "size": 4827899,
+      "sha256": "5e2e1e15ecd1457115d7d73fbc21d2c991dcc496a88c1b1696715cf4eb40ceed"
+    },
+    {
+      "name": "ggnet-1.8.0-r1-x86_64.apk",
+      "size": 4783028,
+      "sha256": "0701007d7b4715b1d2f4f2c860fcae51e805d0033780bc296729071e9af95257"
+    },
+    {
       "name": "ggnet_1.8.0-r1_aarch64_cortex-a53.ipk",
       "size": 4449858,
       "sha256": "97b4b6254693dfe0a97a426310b5c9d8cd76b654e32ad91ec24d55c2ec3fb4b0"
+    },
+    {
+      "name": "ggnet_1.8.0-r1_aarch64_generic.ipk",
+      "size": 4449860,
+      "sha256": "c9ac69bb80e5fe5b3858b2702fbba2bfad707a98996fa83256495a2f2eb05eca"
+    },
+    {
+      "name": "ggnet_1.8.0-r1_x86_64.ipk",
+      "size": 4823953,
+      "sha256": "84262db435ed0b92a3ad02d7eb76d4edb45d14f447e32d0e9d9d270cf3fc2239"
     },
     {
       "name": "ggnet-1.8.0-r1-aarch64.apk",

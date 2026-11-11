@@ -69,6 +69,8 @@ Pick the file for your router's CPU and OpenWrt version (also on the
 | CPU (package architecture) | Routers | OpenWrt 24.10 | OpenWrt 25.12 / snapshot | Any version (installer) |
 |---|---|---|---|---|
 | `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.8.0-r1_aarch64_cortex-a53.ipk`](ggnet_1.8.0-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.8.0-r1-aarch64_cortex-a53.apk`](ggnet-1.8.0-r1-aarch64_cortex-a53.apk) | [`ggnet-1.8.0-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.8.0-r1-aarch64_cortex-a53-installer.tar.gz) |
+| `aarch64_generic` | NanoPi R3S / R3S LTS, other Rockchip, Raspberry Pi 4/5 and generic ARM64 | [`ggnet_1.8.0-r1_aarch64_generic.ipk`](ggnet_1.8.0-r1_aarch64_generic.ipk) | [`ggnet-1.8.0-r1-aarch64_generic.apk`](ggnet-1.8.0-r1-aarch64_generic.apk) | [`ggnet-1.8.0-r1-aarch64_generic-installer.tar.gz`](ggnet-1.8.0-r1-aarch64_generic-installer.tar.gz) |
+| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.8.0-r1_x86_64.ipk`](ggnet_1.8.0-r1_x86_64.ipk) | [`ggnet-1.8.0-r1-x86_64.apk`](ggnet-1.8.0-r1-x86_64.apk) | [`ggnet-1.8.0-r1-x86_64-installer.tar.gz`](ggnet-1.8.0-r1-x86_64-installer.tar.gz) |
 
 Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snapshot) or
 `opkg print-architecture` (24.10).
