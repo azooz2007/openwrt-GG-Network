@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.8.0-19E3C0?style=for-the-badge" alt="version">
+  <img src="https://img.shields.io/badge/version-1.8.1-19E3C0?style=for-the-badge" alt="version">
   &nbsp;
   <img src="https://img.shields.io/badge/OpenWrt-24.10%20%7C%2025.12%20%7C%20snapshot-00B5E2?style=for-the-badge" alt="OpenWrt">
 </p>
@@ -68,9 +68,9 @@ Pick the file for your router's CPU and OpenWrt version (also on the
 
 | CPU (package architecture) | Routers | OpenWrt 24.10 | OpenWrt 25.12 / snapshot | Any version (installer) |
 |---|---|---|---|---|
-| `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.8.0-r1_aarch64_cortex-a53.ipk`](ggnet_1.8.0-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.8.0-r1-aarch64_cortex-a53.apk`](ggnet-1.8.0-r1-aarch64_cortex-a53.apk) | [`ggnet-1.8.0-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.8.0-r1-aarch64_cortex-a53-installer.tar.gz) |
-| `aarch64_generic` | NanoPi R3S / R3S LTS, other Rockchip, Raspberry Pi 4/5 and generic ARM64 | [`ggnet_1.8.0-r1_aarch64_generic.ipk`](ggnet_1.8.0-r1_aarch64_generic.ipk) | [`ggnet-1.8.0-r1-aarch64_generic.apk`](ggnet-1.8.0-r1-aarch64_generic.apk) | [`ggnet-1.8.0-r1-aarch64_generic-installer.tar.gz`](ggnet-1.8.0-r1-aarch64_generic-installer.tar.gz) |
-| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.8.0-r1_x86_64.ipk`](ggnet_1.8.0-r1_x86_64.ipk) | [`ggnet-1.8.0-r1-x86_64.apk`](ggnet-1.8.0-r1-x86_64.apk) | [`ggnet-1.8.0-r1-x86_64-installer.tar.gz`](ggnet-1.8.0-r1-x86_64-installer.tar.gz) |
+| `aarch64_cortex-a53` | Banana Pi BPI-R4 and most MediaTek Filogic / ARM64 routers | [`ggnet_1.8.1-r1_aarch64_cortex-a53.ipk`](ggnet_1.8.1-r1_aarch64_cortex-a53.ipk) | [`ggnet-1.8.1-r1-aarch64_cortex-a53.apk`](ggnet-1.8.1-r1-aarch64_cortex-a53.apk) | [`ggnet-1.8.1-r1-aarch64_cortex-a53-installer.tar.gz`](ggnet-1.8.1-r1-aarch64_cortex-a53-installer.tar.gz) |
+| `aarch64_generic` | NanoPi R3S / R3S LTS, other Rockchip, Raspberry Pi 4/5 and generic ARM64 | [`ggnet_1.8.1-r1_aarch64_generic.ipk`](ggnet_1.8.1-r1_aarch64_generic.ipk) | [`ggnet-1.8.1-r1-aarch64_generic.apk`](ggnet-1.8.1-r1-aarch64_generic.apk) | [`ggnet-1.8.1-r1-aarch64_generic-installer.tar.gz`](ggnet-1.8.1-r1-aarch64_generic-installer.tar.gz) |
+| `x86_64` | x86 PCs, mini-PCs and virtual machines | [`ggnet_1.8.1-r1_x86_64.ipk`](ggnet_1.8.1-r1_x86_64.ipk) | [`ggnet-1.8.1-r1-x86_64.apk`](ggnet-1.8.1-r1-x86_64.apk) | [`ggnet-1.8.1-r1-x86_64-installer.tar.gz`](ggnet-1.8.1-r1-x86_64-installer.tar.gz) |
 
 Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snapshot) or
 `opkg print-architecture` (24.10).
@@ -84,7 +84,7 @@ Not sure which CPU you have? On the router run `apk --print-arch` (25.12 / snaps
 
 ```sh
 opkg update
-opkg install /tmp/ggnet_1.8.0-r1_aarch64_cortex-a53.ipk
+opkg install /tmp/ggnet_1.8.1-r1_aarch64_cortex-a53.ipk
 ```
 
 **OpenWrt 25.12 / snapshot / ImmortalWrt** (`.apk`) — trust the GG Network key once, then install:
@@ -92,7 +92,7 @@ opkg install /tmp/ggnet_1.8.0-r1_aarch64_cortex-a53.ipk
 ```sh
 wget -O /etc/apk/keys/ggnet.pem https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-apk-key.pem
 apk update
-apk add /tmp/ggnet-1.8.0-r1-aarch64_cortex-a53.apk
+apk add /tmp/ggnet-1.8.1-r1-aarch64_cortex-a53.apk
 ```
 
 (The file names above are for the BPI-R4; use the one for your CPU from the table.)
@@ -105,23 +105,23 @@ GG Network packages are signed. apk only installs them once your router trusts t
 
    ```sh
    wget -O /etc/apk/keys/ggnet.pem https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-apk-key.pem
-   apk verify /tmp/ggnet-1.8.0-r1-aarch64_cortex-a53.apk
+   apk verify /tmp/ggnet-1.8.1-r1-aarch64_cortex-a53.apk
    ```
 
-   `OK` means the key and the file are fine: run `apk add /tmp/ggnet-1.8.0-r1-aarch64_cortex-a53.apk`.
+   `OK` means the key and the file are fine: run `apk add /tmp/ggnet-1.8.1-r1-aarch64_cortex-a53.apk`.
 
 2. **Still `UNTRUSTED`? Check that you have the real file.** It's about 4 MB. Saving the GitHub page from
    the browser saves a web page, not the package. Download it straight to the router instead:
 
    ```sh
-   wget -O /tmp/ggnet-1.8.0-r1-aarch64_cortex-a53.apk https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-1.8.0-r1-aarch64_cortex-a53.apk
+   wget -O /tmp/ggnet-1.8.1-r1-aarch64_cortex-a53.apk https://raw.githubusercontent.com/azooz2007/openwrt-GG-Network/main/ggnet-1.8.1-r1-aarch64_cortex-a53.apk
    ```
 
 3. **The message names another feed?** If `apk update` prints `UNTRUSTED signature` for a feed
    that isn't GG Network (a third-party feed you added), that feed is the problem, not GG Network. The
    `apk add /tmp/...` above still installs GG Network.
 
-4. **Last resort:** `apk add --allow-untrusted /tmp/ggnet-1.8.0-r1-aarch64_cortex-a53.apk`. This installs the GG Network key
+4. **Last resort:** `apk add --allow-untrusted /tmp/ggnet-1.8.1-r1-aarch64_cortex-a53.apk`. This installs the GG Network key
    too, so later updates from the GG Network tab are checked again.
 
 The LuCI **Upload Package…** button gives the same message when the key is missing. Do step 1, then
@@ -165,23 +165,15 @@ Everything GG Network set up on the router is removed with it.
 
 ## What's new
 
-### 1.8.0
+### 1.8.1
 
-Synced to client spec **1.47.0** (1.44.0 and 1.45.0 have nothing for the app).
+The rest of client spec **1.47.0** (added to the spec after 1.8.0 was built).
 
-- **Fix: maintenance notices piled up.** Every maintenance added its warnings (one per heartbeat),
-  "started" and "back to normal" to the Notices list, so after a few maintenances the connection page
-  showed all of them. Now a maintenance notice replaces the previous one, the service being back
-  removes them (spec §4.1), and "Service is back to normal" itself goes away after 10 minutes.
-- **Account notices (1.47)**: `notice` from sign-in, `/me` and every heartbeat is shown above the
-  connection card as GGamers words it. Blocking (`expired`, `quota_exceeded`, `disabled`, `banned`):
-  Start is disabled with that message and a running connection is stopped. `expiring`: a reminder
-  banner while it lasts and a notice at most once a day. When it goes away (renewed) you can connect
-  again. `status` has `account_notice`.
-- **Free trial accounts (1.46, 1.47)**: `403 trial_used` at sign-in shows GGamers' message, isn't
-  retried and keeps the device key (also after a silent re-login). For trial accounts (`chat_role`
-  `trial`, `status.trial`) the Combos page shows Connect only: no builder, marketplace, edit, delete,
-  attach or detach (they answer `trial_restricted`). Chat rank `trial`: violet `#9179f5`, no badge.
+- **Sign in with your username or email (1.47)**: the sign-in field says "Username or email" (up to
+  254 characters). After sign-in GG Network always uses the account's real username from GGamers
+  (`subscription.username`) for SOCKS5, combos and Smart route, never what was typed.
+- **Email on the Account page (1.47)**: the address given at registration, read only ("contact support
+  to change it"); "–" for older accounts.
 
 Older versions: [CHANGELOG.md](CHANGELOG.md).
 

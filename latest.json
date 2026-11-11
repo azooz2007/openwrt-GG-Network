@@ -1,58 +1,58 @@
 {
-  "version": "1.8.0",
-  "published": "2026-11-11T04:53:56Z",
-  "notes": "Synced to client spec **1.47.0** (1.44.0 and 1.45.0 have nothing for the app).\n\n- **Fix: maintenance notices piled up.** Every maintenance added its warnings (one per heartbeat),\n  \"started\" and \"back to normal\" to the Notices list, so after a few maintenances the connection page\n  showed all of them. Now a maintenance notice replaces the previous one, the service being back\n  removes them (spec §4.1), and \"Service is back to normal\" itself goes away after 10 minutes.\n- **Account notices (1.47)**: `notice` from sign-in, `/me` and every heartbeat is shown above the\n  connection card as GGamers words it. Blocking (`expired`, `quota_exceeded`, `disabled`, `banned`):\n  Start is disabled with that message and a running connection is stopped. `expiring`: a reminder\n  banner while it lasts and a notice at most once a day. When it goes away (renewed) you can connect\n  again. `status` has `account_notice`.\n- **Free trial accounts (1.46, 1.47)**: `403 trial_used` at sign-in shows GGamers' message, isn't\n  retried and keeps the device key (also after a silent re-login). For trial accounts (`chat_role`\n  `trial`, `status.trial`) the Combos page shows Connect only: no builder, marketplace, edit, delete,\n  attach or detach (they answer `trial_restricted`). Chat rank `trial`: violet `#9179f5`, no badge.",
+  "version": "1.8.1",
+  "published": "2026-11-11T05:01:04Z",
+  "notes": "The rest of client spec **1.47.0** (added to the spec after 1.8.0 was built).\n\n- **Sign in with your username or email (1.47)**: the sign-in field says \"Username or email\" (up to\n  254 characters). After sign-in GG Network always uses the account's real username from GGamers\n  (`subscription.username`) for SOCKS5, combos and Smart route, never what was typed.\n- **Email on the Account page (1.47)**: the address given at registration, read only (\"contact support\n  to change it\"); \"–\" for older accounts.",
   "prerelease": false,
   "files": [
     {
-      "name": "ggnet-1.8.0-r1-aarch64_cortex-a53-installer.tar.gz",
-      "size": 4453735,
-      "sha256": "063495dbfd9aa54d796c3886eb4bcf89cbff5a3f5ad488c5d41c2d92499715ea"
+      "name": "ggnet-1.8.1-r1-aarch64_cortex-a53-installer.tar.gz",
+      "size": 4453776,
+      "sha256": "c1cd3aea82682a55c5eeaa02a385b49c7f5f5895447b55f1e3d6b17a529f6d6f"
     },
     {
-      "name": "ggnet-1.8.0-r1-aarch64_cortex-a53.apk",
-      "size": 4402490,
-      "sha256": "5eb404563e2ed76b0d3d6e7941eb2cf304b382f9a3a4c03b18f9e97d4303aa4c"
+      "name": "ggnet-1.8.1-r1-aarch64_cortex-a53.apk",
+      "size": 4402457,
+      "sha256": "f7fecb5c4865558372fdf8ccd508f6f0ffdce3bc57241a46b2d2d97d71f33c52"
     },
     {
-      "name": "ggnet-1.8.0-r1-aarch64_generic-installer.tar.gz",
-      "size": 4453712,
-      "sha256": "7d4ab4a9e4cd6afe56ac13b226a4f43554be45c03d53430ca553678d104f156f"
+      "name": "ggnet-1.8.1-r1-aarch64_generic-installer.tar.gz",
+      "size": 4453746,
+      "sha256": "387ef2c6c8eb4f967a7bb9ea82f51d1adabe66d4cc5264e33340a7a3c4a03b07"
     },
     {
-      "name": "ggnet-1.8.0-r1-aarch64_generic.apk",
-      "size": 4402473,
-      "sha256": "f5aa62fa09847a4906bf1a8dca1813f3b551892ca13d0fd5eb01a9828ad9286f"
+      "name": "ggnet-1.8.1-r1-aarch64_generic.apk",
+      "size": 4402429,
+      "sha256": "1323188563296e746750c721506ce255277a7e8622f2404eceeed8970c1c1d88"
     },
     {
-      "name": "ggnet-1.8.0-r1-x86_64-installer.tar.gz",
-      "size": 4827899,
-      "sha256": "5e2e1e15ecd1457115d7d73fbc21d2c991dcc496a88c1b1696715cf4eb40ceed"
+      "name": "ggnet-1.8.1-r1-x86_64-installer.tar.gz",
+      "size": 4827907,
+      "sha256": "025b92e7156198feadfaeaad47437640f8792eb2356bde2c5fece9dac11044c5"
     },
     {
-      "name": "ggnet-1.8.0-r1-x86_64.apk",
-      "size": 4783028,
-      "sha256": "0701007d7b4715b1d2f4f2c860fcae51e805d0033780bc296729071e9af95257"
+      "name": "ggnet-1.8.1-r1-x86_64.apk",
+      "size": 4783036,
+      "sha256": "bf4dc74772bd0c14620a704a718ed4ccf351e98fc698ec138bb4723fa5b8c994"
     },
     {
-      "name": "ggnet_1.8.0-r1_aarch64_cortex-a53.ipk",
-      "size": 4449858,
-      "sha256": "97b4b6254693dfe0a97a426310b5c9d8cd76b654e32ad91ec24d55c2ec3fb4b0"
+      "name": "ggnet_1.8.1-r1_aarch64_cortex-a53.ipk",
+      "size": 4449908,
+      "sha256": "cfba678e272fa220d20fb566d75fbb746dea08bafc7dbb45f5cc96e274aa317f"
     },
     {
-      "name": "ggnet_1.8.0-r1_aarch64_generic.ipk",
-      "size": 4449860,
-      "sha256": "c9ac69bb80e5fe5b3858b2702fbba2bfad707a98996fa83256495a2f2eb05eca"
+      "name": "ggnet_1.8.1-r1_aarch64_generic.ipk",
+      "size": 4449784,
+      "sha256": "f7fb1d04678d8d85b61f717d96669e9cf70e95faa54931fa8fe217222f6599fb"
     },
     {
-      "name": "ggnet_1.8.0-r1_x86_64.ipk",
-      "size": 4823953,
-      "sha256": "84262db435ed0b92a3ad02d7eb76d4edb45d14f447e32d0e9d9d270cf3fc2239"
+      "name": "ggnet_1.8.1-r1_x86_64.ipk",
+      "size": 4824107,
+      "sha256": "d03a6b57bb526ae0ac760f0e21f2a12afc0904ab32bd385b8ce098b83cc68d14"
     },
     {
-      "name": "ggnet-1.8.0-r1-aarch64.apk",
-      "size": 4402490,
-      "sha256": "5eb404563e2ed76b0d3d6e7941eb2cf304b382f9a3a4c03b18f9e97d4303aa4c"
+      "name": "ggnet-1.8.1-r1-aarch64.apk",
+      "size": 4402457,
+      "sha256": "f7fecb5c4865558372fdf8ccd508f6f0ffdce3bc57241a46b2d2d97d71f33c52"
     }
   ]
 }

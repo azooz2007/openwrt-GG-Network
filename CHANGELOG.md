@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.8.1
+
+The rest of client spec **1.47.0** (added to the spec after 1.8.0 was built).
+
+- **Sign in with your username or email (1.47)**: the sign-in field says "Username or email" (up to
+  254 characters). After sign-in GG Network always uses the account's real username from GGamers
+  (`subscription.username`) for SOCKS5, combos and Smart route, never what was typed.
+- **Email on the Account page (1.47)**: the address given at registration, read only ("contact support
+  to change it"); "–" for older accounts.
+
 ## 1.8.0
 
 Synced to client spec **1.47.0** (1.44.0 and 1.45.0 have nothing for the app).
